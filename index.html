@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full bg-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citoyen Bénin — Le Hub de Simplification Administrative</title>
+  <meta name="description" content="Plateforme officielle Citoyen Bénin - Concours Prix National de la Simplification Administrative">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="h-full flex antialiased bg-[#f4f6f9] text-slate-800 relative overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+
+  <!-- RUBAN DRAPEAU BÉNINOIS HAUT-DROITE -->
+  <div class="fixed top-0 right-0 pointer-events-none z-30 select-none overflow-hidden w-64 h-48 md:w-80 md:h-60 opacity-95">
+    <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <!-- Bande Verte -->
+      <path d="M120 0C170 30 220 80 250 140C270 180 300 210 320 220V0H120Z" fill="url(#greenGrad)" />
+      <!-- Bande Jaune -->
+      <path d="M180 0C220 40 255 90 280 150C295 185 310 210 320 220V70C300 50 270 20 240 0H180Z" fill="url(#yellowGrad)" />
+      <!-- Bande Rouge -->
+      <path d="M250 0C280 25 305 60 320 100V0H250Z" fill="url(#redGrad)" />
+      <defs>
+        <linearGradient id="greenGrad" x1="120" y1="0" x2="320" y2="220" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#008751"/>
+          <stop offset="1" stop-color="#005d37"/>
+        </linearGradient>
+        <linearGradient id="yellowGrad" x1="180" y1="0" x2="320" y2="220" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#fcd116"/>
+          <stop offset="1" stop-color="#e0b800"/>
+        </linearGradient>
+        <linearGradient id="redGrad" x1="250" y1="0" x2="320" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#e8112d"/>
+          <stop offset="1" stop-color="#b8091f"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BARRE LATÉRALE GAUCHE (SIDEBAR NOIRE OFFICIELLE CITOYEN BÉNIN) -->
+  <!-- ========================================================================= -->
+  <aside class="w-64 bg-[#0d1117] text-slate-300 flex flex-col justify-between shrink-0 border-r border-slate-800 relative z-40 min-h-screen">
+    
+    <!-- Haut Sidebar : Logo & Navigation -->
+    <div class="p-5 space-y-7">
+      
+      <!-- Logo Citoyen Bénin -->
+      <div class="flex items-center gap-3 px-1">
+        <!-- Rosette multi-couleurs Bénin -->
+        <div class="relative w-9 h-9 flex items-center justify-center shrink-0">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="10" width="14" height="14" rx="3" transform="rotate(45 3 10)" fill="#008751" />
+            <rect x="18" y="3" width="14" height="14" rx="3" transform="rotate(45 18 3)" fill="#fcd116" />
+            <rect x="10" y="18" width="14" height="14" rx="3" transform="rotate(45 10 18)" fill="#e8112d" />
+            <rect x="18" y="18" width="14" height="14" rx="3" transform="rotate(45 18 18)" fill="#ff8c00" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-extrabold text-white text-lg tracking-tight leading-none">Citoyen</div>
+          <div class="font-bold text-white text-base tracking-tight leading-none mt-1">Bénin</div>
+        </div>
+      </div>
+
+      <!-- Liens de navigation principaux (Correspondant aux piliers) -->
+      <nav class="space-y-1.5" id="sidebar-nav">
+        <!-- 1. Accueil / Dites-le-nous une fois -->
+        <button class="sidebar-item active w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition" data-tab="p1-once">
+          <span class="icon text-lg">🏠</span>
+          <span class="label">Accueil</span>
+        </button>
+
+        <!-- 2. Mes démarches / Portefeuille -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p2-wallet">
+          <span class="icon text-lg">📋</span>
+          <span class="label">Mes démarches</span>
+        </button>
+
+        <!-- 3. Mes documents / Portefeuille 2D-Doc -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p3-ussd">
+          <span class="icon text-lg">📁</span>
+          <span class="label">Inclusion USSD & Vocal</span>
+        </button>
+
+        <!-- 4. Mon profil / Agent Proactif -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p4-proactive">
+          <span class="icon text-lg">👤</span>
+          <span class="label">Agent Proactif</span>
+        </button>
+
+        <!-- 5. Aide / Prix National de la Simplification -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-amber-400 hover:text-amber-300 hover:bg-slate-850" data-tab="p5-impact">
+          <span class="icon text-lg">🏆</span>
+          <span class="label">Prix National (40M)</span>
+        </button>
+      </nav>
+
+    </div>
+
+    <!-- Bas Sidebar : Encadré d'assurance & Ruban Décoratif Bénin -->
+    <div class="p-4 space-y-4 relative overflow-hidden">
+      
+      <!-- Carte d'aide / Sécurité -->
+      <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs space-y-1 relative z-10 backdrop-blur">
+        <div class="flex items-center gap-2 text-amber-400 font-bold">
+          <span>🛡️</span>
+          <span>Une administration plus proche de vous</span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          Citoyen Bénin, votre portail souverain de services publics.
+        </p>
+      </div>
+
+      <!-- Ruban Drapeau Béninois Bas-Gauche -->
+      <div class="w-full h-20 -mb-4 -ml-4 pointer-events-none select-none relative z-0">
+        <svg viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+          <path d="M0 60C60 40 120 70 180 120H0V60Z" fill="#008751" />
+          <path d="M0 80C70 65 140 85 200 120H0V80Z" fill="#fcd116" />
+          <path d="M0 100C80 90 160 100 220 120H0V100Z" fill="#e8112d" />
+        </svg>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- ZONE DE CONTENU PRINCIPALE (STYLE CLAIR & ULTRA MODERNE) -->
+  <!-- ========================================================================= -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+
+    <!-- TOPBAR BLANCHE AVEC RECHERCHE & PROFIL -->
+    <header class="bg-white/95 backdrop-blur border-b border-slate-200/80 sticky top-0 z-30 px-6 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Barre de recherche moderne -->
+      <div class="flex-1 max-w-xl relative">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 1114 0z" />
+          </svg>
+        </div>
+        <input type="text" placeholder="Rechercher une démarche, un document..." 
+          class="w-full pl-10 pr-12 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white transition">
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-200 rounded text-slate-400 shadow-sm">⌘ K</kbd>
+        </div>
+      </div>
+
+      <!-- Contrôles droits : Cloche notification + Menu utilisateur / Switcher -->
+      <div class="flex items-center gap-4">
+        
+        <!-- Cloche de notification -->
+        <button class="relative p-2 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100 transition" title="Notifications officielles">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500"></span>
+        </button>
+
+        <!-- Profil Utilisateur & Sélecteur citoyen -->
+        <div class="flex items-center gap-2.5 pl-2 border-l border-slate-200">
+          <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-white text-xs font-bold" id="top-avatar">
+            👤
+          </div>
+          <div class="text-left">
+            <div class="text-[10px] text-slate-400 font-medium">Bonjour,</div>
+            <select id="citizen-selector" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer pr-1">
+              <option value="1029384756">Bio Kora Sanni (1029384756)</option>
+              <option value="9876543210">Amina Tokpon (9876543210)</option>
+              <option value="5544332211">Marcos Agossou (5544332211)</option>
+            </select>
+          </div>
+          <button id="btn-reset-demo" title="Réinitialiser la démonstration" class="ml-1 p-1.5 text-xs text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition" title="Reset">
+            🔄
+          </button>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- ZONE DE CONTENU PRINCIPAL PAR ONGLET -->
+    <main class="p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
+
+      <!-- ========================================================================= -->
+      <!-- ONGLET 1 : ACCUEIL / LE MOTEUR « DITES-LE-NOUS UNE FOIS » -->
+      <!-- ========================================================================= -->
+      <section id="tab-p1-once" class="tab-content active space-y-6">
+
+        <!-- 1. HERO BANNER BLANC AVEC SILHOUETTE CARTE DU BÉNIN & BOUTON DÉMARCHE -->
+        <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            
+            <div class="lg:col-span-8 space-y-4">
+              <!-- Badge vert X-Road -->
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Plateforme d'interopérabilité X-Road</span>
+              </div>
+
+              <!-- Titre avec couleurs du drapeau béninois -->
+              <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                Le Moteur « <span class="text-emerald-600">Dites-le-nous</span> <span class="text-amber-500">une</span> <span class="text-rose-600">fois</span> »
+              </h1>
+
+              <!-- Paragraphe descriptif -->
+              <p class="text-slate-500 text-xs md:text-sm leading-relaxed max-w-2xl">
+                Fini les démarches où l'usager doit joindre 6 PDF (CIP, Casier judiciaire, Quittance fiscale, etc.) que l'État possède déjà. En fournissant son NPI et son consentement, l'administration extrait et valide instantanément les données en direct.
+              </p>
+
+              <!-- Liste de bénéfices -->
+              <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600 pt-1">
+                <span class="flex items-center gap-1.5 text-slate-700">
+                  <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  Rapide
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-700">
+                  <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  Sécurisé
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-700">
+                  <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  Fiable
+                </span>
+                <span class="flex items-center gap-1.5 text-slate-700">
+                  <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                  100% digital
+                </span>
+              </div>
+            </div>
+
+            <!-- Illustration Carte Bénin + Badge ID + Bouton Action -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center gap-4 relative">
+              
+              <!-- Carte ID avec ombre et checkmark -->
+              <div class="relative w-44 h-28 bg-white rounded-2xl border border-slate-200 shadow-xl p-3 flex items-center gap-3">
+                <div class="w-12 h-14 bg-slate-100 rounded-lg flex items-center justify-center text-xl shrink-0">
+                  👨🏾‍💼
+                </div>
+                <div class="space-y-1.5 flex-1">
+                  <div class="h-2 w-16 bg-slate-200 rounded"></div>
+                  <div class="h-2 w-20 bg-slate-200 rounded"></div>
+                  <div class="h-1.5 w-12 bg-slate-100 rounded"></div>
+                </div>
+                <div class="absolute -bottom-2 -right-2 w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">
+                  ✓
+                </div>
+              </div>
+
+              <!-- Bouton Lancer la démarche en 1-clic (Gradient Vert à Orange/Rouge) -->
+              <button id="btn-p1-autofill" class="w-full max-w-xs py-3 px-5 bg-gradient-to-r from-emerald-600 via-emerald-600 to-rose-600 hover:from-emerald-500 hover:to-rose-500 text-white font-bold text-xs rounded-xl transition shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2">
+                <span>🚀 Lancer la démarche en 1-clic</span>
+                <span>›</span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 2. DEUX COLONNES PRINCIPALES (FORMULAIRE BLANC & CONSOLE TERMINAL NOIRE) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+          <!-- COLONNE GAUCHE : DÉMARCHE CIBLE (CARTE BLANCHE) -->
+          <div class="lg:col-span-7 bg-white rounded-3xl p-6 md:p-7 border border-slate-200/90 shadow-sm space-y-6">
+            
+            <div class="flex items-start justify-between border-b border-slate-100 pb-4">
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">DÉMARCHE CIBLE</span>
+                <h2 class="text-base font-extrabold text-slate-900 mt-0.5">Candidature Concours Fonction Publique Bénin (Session 2026)</h2>
+              </div>
+              <span class="px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs rounded-full font-semibold flex items-center gap-1.5 shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Service en ligne
+              </span>
+            </div>
+
+            <!-- Comparatif Avant / Après -->
+            <div class="grid grid-cols-1 md:grid-cols-11 gap-3 items-center">
+              
+              <!-- Avant (Rose / Rouge) -->
+              <div class="md:col-span-5 p-4 rounded-2xl bg-[#fff5f5] border border-rose-100 space-y-2">
+                <div class="font-bold text-xs text-rose-600 flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-rose-500 text-white flex items-center justify-center text-[10px]">✕</span>
+                  <span>Avant (Modèle morcelé)</span>
+                </div>
+                <ul class="space-y-1.5 text-[11px] text-slate-600">
+                  <li class="flex items-center gap-1.5 text-rose-500">
+                    <span>✕</span>
+                    <span class="text-slate-600">Téléchargement de CNI et/ou NPI</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-rose-500">
+                    <span>✕</span>
+                    <span class="text-slate-600">Paiement autonome du dossier (individuel)</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-rose-500">
+                    <span>✕</span>
+                    <span class="text-slate-600">Saisie manuelle des informations</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-rose-500">
+                    <span>✕</span>
+                    <span class="text-slate-600">Légalisation des scans PDF multiples</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Flèche centrale -->
+              <div class="md:col-span-1 flex justify-center text-slate-400">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold">➔</span>
+              </div>
+
+              <!-- Avec Pass Citoyen (Vert menthe) -->
+              <div class="md:col-span-5 p-4 rounded-2xl bg-[#f0fdf4] border border-emerald-100 space-y-2">
+                <div class="font-bold text-xs text-emerald-700 flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px]">✓</span>
+                  <span>Avec le Pass Citoyen</span>
+                </div>
+                <ul class="space-y-1.5 text-[11px] text-slate-600">
+                  <li class="flex items-center gap-1.5 text-emerald-600">
+                    <span>✓</span>
+                    <span class="text-slate-700">Saisie du NPI et consentement</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-emerald-600">
+                    <span>✓</span>
+                    <span class="text-slate-700">Récupération automatique des données</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-emerald-600">
+                    <span>✓</span>
+                    <span class="text-slate-700">Interrogation X-Road des administrations</span>
+                  </li>
+                  <li class="flex items-center gap-1.5 text-emerald-600">
+                    <span>✓</span>
+                    <span class="text-slate-700">Traitement et validation instantanés</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- Saisie NPI -->
+            <div class="space-y-2 pt-1">
+              <label for="input-npi" class="block text-xs font-bold text-slate-800">
+                Numéro Personnel d'Identification (NPI) Béninois
+              </label>
+              <div class="flex gap-2">
+                <div class="relative flex-1">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                  </div>
+                  <input type="text" id="input-npi" value="1029384756" maxlength="10" placeholder="Exemple: 1029384756"
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-20 py-2.5 text-xs font-mono font-medium text-slate-800 focus:outline-none focus:border-emerald-500 focus:bg-white transition">
+                  <span class="absolute right-3.5 top-2.5 text-[11px] text-slate-400 font-mono">10 chiffres</span>
+                </div>
+                <button id="btn-verify-npi" class="px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-amber-500 hover:from-emerald-500 hover:to-amber-400 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow">
+                  <span>🛡️ Vérifier NPI</span>
+                  <span>›</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Bloc Consentement RGPD / APDP Bénin -->
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-800 flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-rose-500 text-white flex items-center justify-center text-[10px]">🛡️</span>
+                  <span>Consentement RGPD / APDP Bénin</span>
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono flex items-center gap-1">
+                  <span>🛡️</span> Audit tracé
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-500 leading-relaxed">
+                En cochant cette case, vous autorisez le Ministère du Travail à interroger vos registres officiels via la passerelle d'échange X-Road de l'État béninois.
+              </p>
+              <label class="flex items-center gap-2.5 cursor-pointer pt-1 text-xs font-medium text-slate-700">
+                <input type="checkbox" id="consent-master" checked class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500">
+                <span>J'accepte les conditions et donne mon consentement.</span>
+              </label>
+            </div>
+
+            <!-- Résultat de la démarche (Injecté dynamiquement) -->
+            <div id="procedure-result" class="hidden p-4 rounded-2xl border transition-all duration-300">
+              <!-- Injecté par JS -->
+            </div>
+
+          </div>
+
+          <!-- COLONNE DROITE : CONSOLE X-ROAD SECURITY SERVER (CARTE NOIRE EXACTE) -->
+          <div class="lg:col-span-5 bg-[#0d1117] rounded-3xl border border-slate-800 shadow-xl overflow-hidden flex flex-col">
+            
+            <!-- En-tête Console -->
+            <div class="px-5 py-4 border-b border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded bg-slate-800 border border-slate-700 flex items-center justify-center text-xs text-slate-400 font-mono font-bold">>_</span>
+                <span class="font-extrabold text-sm text-white font-mono">Console X-Road Security Server</span>
+              </div>
+              <span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[11px] rounded-full font-mono font-semibold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Connecté
+              </span>
+            </div>
+
+            <!-- Sous-barre serveur catis.gouv.bj -->
+            <div class="px-5 py-2.5 bg-slate-900/90 border-b border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+              <div class="flex items-center gap-2 text-slate-300">
+                <span>🖥️</span>
+                <span class="font-semibold">catis.gouv.bj</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-slate-500">v2.8.1</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  En ligne
+                </span>
+              </div>
+            </div>
+
+            <!-- Écran Terminal noir des logs interactifs -->
+            <div id="xroad-logs" class="p-5 flex-1 font-mono text-xs text-slate-400 space-y-2 min-h-[340px] max-h-[420px] overflow-y-auto leading-relaxed">
+              <div class="text-slate-500 italic">// En attente d'une requête de démarche...</div>
+              <div class="text-slate-500">// Prêt à relayer les appels SOAP / REST sécurisés par mTLS et signature gouvernementale.</div>
+            </div>
+
+            <!-- Pied de page Console -->
+            <div class="px-5 py-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>X-Road Security Server v2.8.1</span>
+              </div>
+              <div>
+                <span>État : <strong class="text-emerald-400">opérationnel</strong></span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- ONGLET 2 : PORTEFEUILLE NUMÉRIQUE HORS-LIGNE & VÉRIFICATEUR -->
+      <!-- ========================================================================= -->
+      <section id="tab-p2-wallet" class="tab-content hidden space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-2">
+              Pilier 2 — Application Mobile & Cryptographie 2D-Doc
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Le Portefeuille Numérique Hors-ligne</h1>
+            <p class="text-slate-500 text-xs md:text-sm mt-1 max-w-2xl">
+              Les attestations officielles sont stockées sur le smartphone et vérifiables <strong>en plein désert ou sans connexion Internet</strong> par les forces de l'ordre ou les recruteurs.
+            </p>
+          </div>
+          <!-- Toggle Mode Avion -->
+          <div class="flex items-center gap-3 bg-slate-100 p-2 rounded-2xl border border-slate-200">
+            <span class="text-xs text-slate-600 font-semibold">Mode Avion (0% Réseau) :</span>
+            <button id="toggle-airplane-mode" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-white text-slate-800 shadow-sm border border-slate-200">
+              <span id="airplane-status-dot" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span id="airplane-status-text">Connecté (4G)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Smartphone Usager (Gauche) -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="w-full max-w-sm bg-slate-950 border-4 border-slate-800 rounded-[40px] p-4 shadow-2xl space-y-4">
+              <div class="w-32 h-4 bg-slate-800 rounded-b-xl mx-auto flex items-center justify-center">
+                <div class="w-3 h-3 rounded-full bg-slate-900 border border-slate-700"></div>
+              </div>
+              <div class="flex justify-between items-center text-[11px] font-mono text-slate-400 px-1">
+                <span>12:45</span>
+                <span class="flex items-center gap-1">
+                  <span id="phone-signal-icon">📶 4G</span>
+                  <span id="phone-battery">🔋 94%</span>
+                </span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-extrabold text-white text-base">Mon Pass Bénin</h3>
+                  <p class="text-[11px] text-slate-400" id="wallet-citizen-name">Bio Kora Sanni</p>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold border border-emerald-500/30">
+                  BK
+                </div>
+              </div>
+
+              <!-- Carte Titre CIP -->
+              <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/90 via-slate-900 to-slate-900 border border-emerald-500/40 shadow-xl space-y-3 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-[9px] uppercase tracking-wider text-emerald-400 font-bold">RÉPUBLIQUE DU BÉNIN</span>
+                    <h4 class="font-bold text-white text-sm">Certificat d'Identification Personnelle (CIP)</h4>
+                  </div>
+                  <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-mono border border-emerald-500/40 text-[10px]">ANIP</span>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                  <div class="w-14 h-16 rounded-lg bg-slate-800 border border-slate-700 flex flex-col items-center justify-center text-slate-400 text-xs shrink-0 overflow-hidden">
+                    <span class="text-2xl">👤</span>
+                    <span class="text-[8px] text-emerald-400 font-mono mt-0.5">BIOMÉTRIE</span>
+                  </div>
+                  <div class="space-y-0.5 text-xs">
+                    <p class="text-slate-400 text-[10px]">Titulaire :</p>
+                    <p class="font-bold text-white" id="card-holder-name">Bio Kora Sanni</p>
+                    <p class="text-slate-400 text-[10px]">NPI : <span class="font-mono text-emerald-400 font-bold" id="card-npi">1029384756</span></p>
+                    <p class="text-slate-400 text-[10px]">Validité : <span class="text-slate-200">12/2028</span></p>
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between">
+                  <div class="space-y-0.5">
+                    <span class="text-[10px] text-emerald-400 font-mono font-semibold flex items-center gap-1">
+                      🔐 2D-Doc Signé ED25519
+                    </span>
+                    <p class="text-[9px] text-slate-400">Authentifiable 100% hors-ligne</p>
+                  </div>
+                  <div id="wallet-qr-code" class="p-1.5 bg-white rounded-lg shadow cursor-pointer hover:scale-105 transition" title="Cliquez pour agrandir">
+                    <!-- Injecté par JS -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Autres Justificatifs -->
+              <div class="space-y-2">
+                <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Autres titres synchronisés</span>
+                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="text-base">⚖️</span>
+                    <div>
+                      <p class="font-bold text-slate-200">Bulletin Casier Judiciaire n°3</p>
+                      <p class="text-[10px] text-slate-400">Min. Justice • Vierge</p>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Valide</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Terminal Agent de Contrôle (Droite) -->
+          <div class="lg:col-span-6 bg-white rounded-3xl p-6 md:p-7 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div>
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Terminal Agent de Contrôle</span>
+                <h2 class="text-base font-extrabold text-slate-900">Vérificateur Souverain Hors-Ligne</h2>
+              </div>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full font-mono font-semibold">
+                FDO / Notaire / Concours
+              </span>
+            </div>
+
+            <p class="text-xs text-slate-500">
+              Vérifie l'authenticité de l'attestation grâce au trousseau public de l'État préchargé, <strong>sans aucun accès réseau</strong>.
+            </p>
+
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+              <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-100 flex items-center justify-center text-3xl">
+                📷
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Scanner le 2D-Doc du citoyen</h4>
+                <p class="text-xs text-slate-500 mt-1">Capture optique instantanée sans connexion 4G.</p>
+              </div>
+              <button id="btn-scan-qr" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition shadow flex items-center gap-2 mx-auto">
+                <span>🔍 Scanner le document</span>
+              </button>
+            </div>
+
+            <!-- Résultat du scan -->
+            <div id="scan-result-card" class="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-slate-500">Statut du scan optique :</span>
+                <span id="scan-badge" class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-slate-200 text-slate-600">En attente</span>
+              </div>
+              <div id="scan-details" class="text-xs text-slate-600 font-mono space-y-1">
+                <p>// Cliquez sur « Scanner le document ».</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- ONGLET 3 : INCLUSION USSD & VOCAL (DERNIER KILOMÈTRE) -->
+      <!-- ========================================================================= -->
+      <section id="tab-p3-ussd" class="tab-content hidden space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold mb-2">
+              Pilier 3 — Accessibilité Dernier Kilomètre & Langues Nationales
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Passerelle USSD *130# & Serveur Vocal</h1>
+            <p class="text-slate-500 text-xs md:text-sm mt-1 max-w-2xl">
+              Disponible sur tout téléphone 2G à touches via le code <strong>*130#</strong> et guidage vocal en <strong>Fongbé, Yorùbá</strong> et Français.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">MTN</span>
+            <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200">Moov</span>
+            <span class="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-800 text-xs font-bold border border-teal-200">Celtiis</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Téléphone 2G à touches (Gauche) -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="w-full max-w-xs bg-slate-900 border-4 border-slate-700 rounded-[32px] p-5 shadow-2xl space-y-4">
+              <div class="flex justify-center gap-1.5 py-1">
+                <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+                <span class="w-6 h-2 rounded-full bg-slate-800"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+              </div>
+              <div class="bg-emerald-950 border-2 border-emerald-800 rounded-xl p-3 shadow-inner min-h-[190px] flex flex-col justify-between font-mono text-emerald-300">
+                <div class="flex justify-between text-[10px] border-b border-emerald-900 pb-1 text-emerald-400">
+                  <span>BENIN TELECOM</span>
+                  <span>📶 2G</span>
+                </div>
+                <div id="ussd-screen-content" class="py-2 text-xs leading-relaxed overflow-y-auto max-h-[140px] whitespace-pre-wrap">
+Composer *130# puis appuyer sur [APPEL]
+                </div>
+                <div class="flex justify-between text-[10px] border-t border-emerald-900 pt-1 text-emerald-400">
+                  <span>Retour: 0</span>
+                  <span>Envoyer: #</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <input type="text" id="ussd-input" placeholder="Tapez 1, 2 ou *130#"
+                  class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-center font-mono text-amber-400 focus:outline-none focus:border-amber-500">
+                <button id="ussd-send-btn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition">
+                  OK
+                </button>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-1">
+                <button class="keypad-btn" data-key="1">1</button>
+                <button class="keypad-btn" data-key="2">2</button>
+                <button class="keypad-btn" data-key="3">3</button>
+                <button class="keypad-btn" data-key="4">4</button>
+                <button class="keypad-btn" data-key="5">5</button>
+                <button class="keypad-btn" data-key="6">6</button>
+                <button class="keypad-btn" data-key="7">7</button>
+                <button class="keypad-btn" data-key="8">8</button>
+                <button class="keypad-btn" data-key="9">9</button>
+                <button class="keypad-btn text-amber-400 font-bold" data-key="*">*</button>
+                <button class="keypad-btn" data-key="0">0</button>
+                <button class="keypad-btn text-amber-400 font-bold" data-key="#">#</button>
+              </div>
+              <div class="grid grid-cols-2 gap-3 pt-1">
+                <button id="btn-ussd-dial" class="py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold transition">📞 APPELER</button>
+                <button id="btn-ussd-hangup" class="py-2 bg-rose-900 hover:bg-rose-800 text-white rounded-xl text-xs font-bold transition">🔴 RACCROCHER</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Serveur Vocal SVI (Droite) -->
+          <div class="lg:col-span-6 bg-white rounded-3xl p-6 md:p-7 border border-slate-200 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-4">
+              <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Inclusion Totale</span>
+              <h2 class="text-base font-extrabold text-slate-900">Serveur Vocal Interactif (SVI)</h2>
+              <p class="text-xs text-slate-500 mt-1">Écoutez vos alertes et effectuez vos démarches en langue nationale.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-800">🎧 Choisir la langue :</span>
+                <div class="flex gap-1.5">
+                  <button class="lang-selector-btn active" data-lang="fon">🇧🇯 Fongbé</button>
+                  <button class="lang-selector-btn" data-lang="yoruba">🇧🇯 Yorùbá</button>
+                  <button class="lang-selector-btn" data-lang="fr">🇫🇷 Français</button>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-slate-200 space-y-1.5">
+                <span class="text-xs text-slate-400 font-semibold" id="audio-scenario-title">Message d'accueil & NPI</span>
+                <p class="text-xs text-slate-800 font-medium italic" id="audio-transcript-text">« Mi kwekwe do Pass Citoyen Bénin ji... »</p>
+                <p class="text-[11px] text-slate-500" id="audio-translation-text">Traduction : Bienvenue sur le Pass Citoyen...</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button id="btn-play-voice" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition shadow flex items-center gap-2">
+                  <span id="voice-play-icon">▶️</span>
+                  <span id="voice-play-text">Écouter l'invite vocale</span>
+                </button>
+                <button id="btn-stop-voice" class="px-4 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs rounded-xl transition">⏹️ Arrêter</button>
+                <span class="text-[11px] text-slate-500 flex-1 text-right" id="voice-status">Prêt</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- ONGLET 4 : AGENT PROACTIF & TRÉSORPAY -->
+      <!-- ========================================================================= -->
+      <section id="tab-p4-proactive" class="tab-content hidden space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-semibold mb-2">
+              Pilier 4 — Proactivité & Paiement Sécurisé TrésorPay
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">L'Agent Proactif du Cycle de Vie</h1>
+            <p class="text-slate-500 text-xs md:text-sm mt-1 max-w-2xl">
+              Anticipe les échéances, génère le dossier pré-rempli et permet le règlement direct via <strong>TrésorPay (MTN / Moov Money)</strong>.
+            </p>
+          </div>
+          <button id="btn-trigger-proactive-alert" class="px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs rounded-xl transition shadow">
+            ⚡ Déclencher une alerte d'expiration
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Simulation WhatsApp Officiel (Gauche) -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="w-full max-w-sm bg-slate-950 border-4 border-slate-800 rounded-[40px] p-4 shadow-2xl space-y-3">
+              <div class="flex justify-between items-center text-[10px] font-mono text-slate-400 px-2">
+                <span>09:15</span>
+                <span>WhatsApp Bénin Services 🛡️</span>
+                <span>📶 🔋</span>
+              </div>
+              <div class="bg-slate-900 rounded-2xl p-3 border border-slate-800 space-y-3 min-h-[380px] flex flex-col justify-between">
+                <div class="flex items-center gap-2.5 pb-2 border-b border-slate-800">
+                  <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold text-white">BJ</div>
+                  <div>
+                    <span class="font-bold text-white text-xs">Service-Public Bénin ☑️</span>
+                    <p class="text-[10px] text-emerald-400 font-mono">Agent Proactif Pass Citoyen</p>
+                  </div>
+                </div>
+                <div class="space-y-3 flex-1 overflow-y-auto py-2">
+                  <div class="bg-slate-800 rounded-2xl p-3 text-xs text-slate-200 border border-slate-700 space-y-2">
+                    <span class="text-[10px] text-teal-400 font-bold block">⚠️ Alerte Expiration Imminente</span>
+                    <p>Bonjour <strong>M. Bio Kora Sanni</strong>, votre <strong>CIP</strong> expire dans <strong>28 jours</strong> (NPI 1029384756).</p>
+                    <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-700 space-y-1">
+                      <div class="flex justify-between text-[11px]">
+                        <span class="text-slate-400">Frais de délivrance :</span>
+                        <span class="font-bold text-white font-mono">2 800 FCFA</span>
+                      </div>
+                    </div>
+                    <button id="btn-quick-renew" class="w-full py-2 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-lg text-xs transition flex items-center justify-center gap-1.5">
+                      <span>⚡ Renouveler et Payer (1 Clic)</span>
+                    </button>
+                  </div>
+                  <div id="whatsapp-reply" class="hidden bg-emerald-950/80 rounded-2xl p-3 text-xs text-emerald-200 border border-emerald-800 space-y-1">
+                    <div class="font-bold text-emerald-300">✅ CIP Renouvelé avec succès !</div>
+                    <p class="text-[11px] text-slate-300">Votre nouveau certificat est actif jusqu'en 2031 dans votre portefeuille.</p>
+                  </div>
+                </div>
+                <div class="text-[10px] text-center text-slate-500">🔒 Chiffrement de bout en bout</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guichet TrésorPay (Droite) -->
+          <div class="lg:col-span-6 bg-white rounded-3xl p-6 md:p-7 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div>
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Passerelle Nationale</span>
+                <h2 class="text-base font-extrabold text-slate-900">Guichet Unifié TrésorPay</h2>
+              </div>
+              <span class="px-2.5 py-1 bg-teal-50 text-teal-700 text-xs rounded-full font-mono font-semibold">tresorpay.bj</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div class="flex justify-between"><span class="text-slate-500">Objet :</span><strong class="text-slate-800">Renouvellement CIP N° 1029384756</strong></div>
+              <div class="flex justify-between"><span class="text-slate-500">Bénéficiaire :</span><span class="text-slate-700">ANIP — Trésor Public Bénin</span></div>
+              <div class="flex justify-between text-sm pt-2 border-t border-slate-200 font-extrabold text-emerald-700">
+                <span>Montant net :</span><span class="font-mono">2 800 FCFA</span>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-800">Moyen de paiement :</label>
+              <div class="grid grid-cols-3 gap-3">
+                <label class="payment-method-card active cursor-pointer p-3 rounded-2xl border border-teal-500 bg-teal-50 flex flex-col items-center gap-1 transition" data-method="mtn">
+                  <span class="text-xl">🟡</span>
+                  <span class="font-bold text-xs text-slate-800">MTN MoMo</span>
+                </label>
+                <label class="payment-method-card cursor-pointer p-3 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col items-center gap-1 transition" data-method="moov">
+                  <span class="text-xl">🔵</span>
+                  <span class="font-bold text-xs text-slate-800">Moov Money</span>
+                </label>
+                <label class="payment-method-card cursor-pointer p-3 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col items-center gap-1 transition" data-method="card">
+                  <span class="text-xl">💳</span>
+                  <span class="font-bold text-xs text-slate-800">Carte Visa</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <label class="block text-xs font-bold text-slate-800">Numéro Mobile Money (Bénin)</label>
+              <div class="flex gap-2">
+                <span class="px-3.5 py-2 bg-slate-100 border border-slate-200 rounded-xl text-xs font-mono text-slate-600">+229</span>
+                <input type="text" id="momo-phone" value="97010203" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800">
+              </div>
+              <button id="btn-pay-tresorpay" class="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl text-xs transition shadow flex items-center justify-center gap-2">
+                <span id="pay-btn-icon">💳</span>
+                <span id="pay-btn-text">Confirmer le paiement de 2 800 FCFA</span>
+              </button>
+            </div>
+
+            <div id="tresorpay-receipt" class="hidden p-4 rounded-2xl bg-emerald-50 border border-emerald-300 space-y-2">
+              <!-- Injecté par JS -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- ONGLET 5 : COCKPIT JURY & PRIX NATIONAL (40 000 000 FCFA) -->
+      <!-- ========================================================================= -->
+      <section id="tab-p5-impact" class="tab-content hidden space-y-6">
+
+        <!-- Bannière officielle 40M FCFA -->
+        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl text-white space-y-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-extrabold text-xs border border-amber-500/40">
+              🏆 PRIX NATIONAL DE LA SIMPLIFICATION ADMINISTRATIVE
+            </span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold text-xs border border-emerald-500/30">
+              💰 40 000 000 FCFA EN JEU
+            </span>
+          </div>
+
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+            « Pass Citoyen Bénin » — Candidature Officielle au Grand Prix
+          </h1>
+
+          <p class="text-slate-300 text-xs md:text-sm leading-relaxed max-w-3xl">
+            <strong class="text-amber-300">« Le service public commence avec vous. Vos expériences éclairent les réformes de demain. »</strong><br>
+            Répond point par point aux trois questions de l'État : <em>« Cette démarche prend trop de temps ? Ce formulaire pourrait être plus simple ? On pourrait régler ça en un clic ? »</em>
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="https://prix-simplification.gouv.bj/" target="_blank" rel="noopener noreferrer" 
+               class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition shadow flex items-center gap-2">
+              <span>🌐 prix-simplification.gouv.bj</span>
+              <span>↗</span>
+            </a>
+            <a href="dossier_candidature_prix_simplification.md" target="_blank"
+               class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold text-xs rounded-xl border border-amber-500/40 transition flex items-center gap-2">
+              <span>📑 Consulter le Dossier Rédigé</span>
+            </a>
+            <span class="text-xs text-slate-400 font-mono">
+              📅 Dépôt : <strong class="text-emerald-400">29 Octobre - 12 Novembre 2026</strong>
+            </span>
+          </div>
+        </div>
+
+        <!-- 4 Compteurs d'Impact -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="text-2xl">📄</span>
+            <div class="text-2xl font-extrabold text-slate-900 font-mono" id="stat-paper">12,4M</div>
+            <div class="text-xs font-bold text-slate-700">Feuilles de papier économisées / an</div>
+            <p class="text-[11px] text-slate-400">-85% de photocopies et classeurs.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="text-2xl">⏱️</span>
+            <div class="text-2xl font-extrabold text-slate-900 font-mono" id="stat-time">45 secondes</div>
+            <div class="text-xs font-bold text-slate-700">Délai d'instruction moyen</div>
+            <p class="text-[11px] text-slate-400">Comparé à 14 jours ouvrés avant.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="text-2xl">🛵</span>
+            <div class="text-2xl font-extrabold text-slate-900 font-mono" id="stat-trips">38M km</div>
+            <div class="text-xs font-bold text-slate-700">Déplacements physiques évités</div>
+            <p class="text-[11px] text-slate-400">Élimine les allers-retours en préfecture.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <span class="text-2xl">💰</span>
+            <div class="text-2xl font-extrabold text-slate-900 font-mono" id="stat-money">4,8 Mds FCFA</div>
+            <div class="text-xs font-bold text-slate-700">Pouvoir d'achat restitué</div>
+            <p class="text-[11px] text-slate-400">Économies de transport et de légalisation.</p>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
