@@ -1,17 +1,17 @@
-# 🇧🇯 Pass Citoyen Bénin — Le Hub Omnicanal de Simplification Administrative
+# 🇧🇯 Citoyen Bénin — Le Hub Omnicanal de Simplification Administrative
 
-> **Prototype officiel et interactif développé pour le Concours d'Innovation Administrative de la République du Bénin.**
+> **Portail souverain et unifié d'accès aux services publics de la République du Bénin.**
 
-Le **Pass Citoyen Bénin** transforme l'administration béninoise d'un modèle réactif et cloisonné (où le citoyen téléverse sans cesse des copies et se déplace en mairie/préfecture) en un modèle **proactif, interconnecté et accessible à 100% de la population**.
+Le projet **Citoyen Bénin** transforme l'administration béninoise d'un modèle réactif et cloisonné (où le citoyen téléverse sans cesse des copies et se déplace en mairie/préfecture) en un modèle **proactif, interconnecté et accessible à 100% de la population**.
 
 ---
 
-## 🌟 Les 4 Piliers Intégrés & Démontrés
+## 🌟 Les 4 Piliers Intégrés
 
 1. **Pilier 1 — Le Moteur « Dites-le-nous une fois » (Backend & Interopérabilité X-Road)**
    - Formulaire unique basé sur le NPI (Numéro Personnel d'Identification).
    - Interrogation en temps réel de l'**ANIP** (État civil), de la **DGI** (Quitus fiscal) et du **Ministère de la Justice** (Casier judiciaire).
-   - Dossier validé en 5 secondes avec **zéro document téléversé**.
+   - Dossier validé en quelques secondes avec **zéro document papier téléversé**.
 
 2. **Pilier 2 — Le Portefeuille Numérique Hors-ligne (Mobile & Cryptographie 2D-Doc)**
    - Stockage local sécurisé des attestations officielles (CIP, quittances).
@@ -27,7 +27,7 @@ Le **Pass Citoyen Bénin** transforme l'administration béninoise d'un modèle r
    - Alerte automatisée via WhatsApp officiel / SMS avec dossier pré-rempli.
    - Renouvellement et paiement en 1 clic via le guichet **TrésorPay (MTN MoMo / Moov Money)**.
 
-5. **Cockpit d'Impact Jury**
+5. **Indicateurs d'Impact Citoyen**
    - **-85%** de papier consommé (12,4 millions de feuilles économisées/an).
    - **-99,8%** de délais d'instruction (de 14 jours ouvrés à 45 secondes).
    - **38 millions de km** de trajets évités (zémidjans et transports).
@@ -49,15 +49,15 @@ Double-cliquez simplement sur le fichier `index.html` ou ouvrez-le avec Chrome /
 
 ---
 
-## 🎤 Déroulé du Pitch Démo pour le Jury (3 à 5 minutes)
+## 🎯 Parcours de Démonstration (3 à 5 minutes)
 
-1. **Introduction (30s) — Onglet "1. Dites-le-nous une fois"** :
-   - Montrez la démarche de candidature à un concours. 
+1. **Accueil — Moteur « Dites-le-nous une fois »** :
+   - Présentation de la démarche administrative.
    - Cliquez sur `🚀 Lancer la démarche en 1-clic`.
-   - Montrez la console X-Road à droite : *« Regardez, le citoyen n'a téléversé aucun PDF. Le système a interrogé l'ANIP, les impôts et le casier judiciaire en 3 secondes sous contrôle APDP. »*
+   - Observez la console X-Road à droite : l'ANIP, les impôts et le casier judiciaire sont interrogés en direct sous le contrôle de l'APDP.
 
-2. **Le Contrôle Terrain (1 min) — Onglet "2. Portefeuille Hors-ligne"** :
-   - Activez le bouton `Mode Hors-Ligne (Avion)`.
+2. **Mes documents — Portefeuille Hors-Ligne 2D-Doc** :
+   - Activez le bouton `Mode Avion`.
    - À droite sur le terminal de l'agent de contrôle, cliquez sur `🔍 Scanner le document du citoyen`.
    - Expliquez : *« Même sans aucune connexion 4G au fond d'un village ou à un poste de contrôle frontière, la signature 2D-Doc est authentifiée instantanément grâce à la clé publique locale. »*
 
@@ -73,7 +73,7 @@ Double-cliquez simplement sur le fichier `index.html` ou ouvrez-le avec Chrome /
    - Sélectionnez `MTN MoMo` et validez sur TrésorPay.
    - Montrez la délivrance instantanée de la nouvelle validité.
 
-5. **Conclusion (30s) — Onglet "Impact & Jury"** :
+5. **Conclusion (30s) — Onglet "Aide & Impact"** :
    - Présentez les chiffres d'impact et la phrase clé :
-   *« Le Pass Citoyen Bénin ne réinvente pas la roue : il relie ANIP, X-Road, TrésorPay et les opérateurs télécoms pour offrir un service public digne, fluide et souverain à 100% des Béninois. »*
-# citoyen-pass
+   *« Citoyen Bénin ne réinvente pas la roue : il relie ANIP, X-Road, TrésorPay et les opérateurs télécoms pour offrir un service public digne, fluide et souverain à 100% des Béninois. »*
+

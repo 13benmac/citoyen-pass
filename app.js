@@ -142,6 +142,8 @@ function initNavigation() {
       });
 
       // Remonter au début de la vue
+      const scrollContainer = document.querySelector(".overflow-y-auto");
+      if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
@@ -500,7 +502,7 @@ function initPillarThree() {
     });
   }
 
-  // Raccourcis test rapide jury
+  // Raccourcis test rapide démonstration
   quickTestButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const ussd = btn.getAttribute("data-ussd");
@@ -532,7 +534,7 @@ function showUssdStatus() {
   const citizen = CITIZENS_DB[AppState.currentCitizenId];
   const screen = document.getElementById("ussd-screen-content");
   screen.textContent = 
-`[DOSSIER CONCOURS]
+`[DOSSIER EN COURS]
 Ref: ${citizen.numDossier}
 NPI: ${citizen.npi}
 Statut: ${citizen.statutDossierConcours}
@@ -794,7 +796,7 @@ function resetDemo() {
   const waReply = document.getElementById("whatsapp-reply");
   if (waReply) waReply.classList.add("hidden");
 
-  alert("Démonstration réinitialisée ! Tous les scénarios sont prêts pour le jury.");
+  alert("Démonstration réinitialisée avec succès ! Tous les scénarios et données ont été restaurés.");
 }
 
 // Bips et retours sonores Web Audio (synthétiseur intégré sans fichier externe)

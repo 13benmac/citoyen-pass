@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citoyen Bénin — Le Hub de Simplification Administrative</title>
-  <meta name="description" content="Plateforme officielle Citoyen Bénin - Concours Prix National de la Simplification Administrative">
+  <meta name="description" content="Citoyen Bénin — Le portail souverain et unifié d'accès aux services publics de la République du Bénin.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,36 +64,46 @@
         </div>
       </div>
 
-      <!-- Liens de navigation principaux (Correspondant aux piliers) -->
+      <!-- Liens de navigation officiels Citoyen Bénin -->
       <nav class="space-y-1.5" id="sidebar-nav">
-        <!-- 1. Accueil / Dites-le-nous une fois -->
-        <button class="sidebar-item active w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition" data-tab="p1-once">
-          <span class="icon text-lg">🏠</span>
-          <span class="label">Accueil</span>
+        <!-- 1. Accueil -->
+        <button class="sidebar-item active w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition" data-tab="p1-once">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          <span>Accueil</span>
         </button>
 
-        <!-- 2. Mes démarches / Portefeuille -->
-        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p2-wallet">
-          <span class="icon text-lg">📋</span>
-          <span class="label">Mes démarches</span>
+        <!-- 2. Mes démarches -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white" data-tab="p4-proactive">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+          </svg>
+          <span>Mes démarches</span>
         </button>
 
-        <!-- 3. Mes documents / Portefeuille 2D-Doc -->
-        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p3-ussd">
-          <span class="icon text-lg">📁</span>
-          <span class="label">Inclusion USSD & Vocal</span>
+        <!-- 3. Mes documents -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white" data-tab="p2-wallet">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+          </svg>
+          <span>Mes documents</span>
         </button>
 
-        <!-- 4. Mon profil / Agent Proactif -->
-        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-850" data-tab="p4-proactive">
-          <span class="icon text-lg">👤</span>
-          <span class="label">Agent Proactif</span>
+        <!-- 4. Mon profil -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white" data-tab="p3-ussd">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          <span>Mon profil</span>
         </button>
 
-        <!-- 5. Aide / Prix National de la Simplification -->
-        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-sm font-semibold transition text-amber-400 hover:text-amber-300 hover:bg-slate-850" data-tab="p5-impact">
-          <span class="icon text-lg">🏆</span>
-          <span class="label">Prix National (40M)</span>
+        <!-- 5. Aide -->
+        <button class="sidebar-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition text-slate-400 hover:text-white" data-tab="p5-impact">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>Aide</span>
         </button>
       </nav>
 
@@ -181,6 +191,8 @@
 
     </header>
 
+
+
     <!-- ZONE DE CONTENU PRINCIPAL PAR ONGLET -->
     <main class="p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
 
@@ -261,6 +273,8 @@
           </div>
 
         </div>
+
+
 
         <!-- 2. DEUX COLONNES PRINCIPALES (FORMULAIRE BLANC & CONSOLE TERMINAL NOIRE) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -826,43 +840,43 @@ Composer *130# puis appuyer sur [APPEL]
 
 
       <!-- ========================================================================= -->
-      <!-- ONGLET 5 : COCKPIT JURY & PRIX NATIONAL (40 000 000 FCFA) -->
+      <!-- ONGLET 5 : CENTRE D'AIDE & IMPACT CITOYEN -->
       <!-- ========================================================================= -->
       <section id="tab-p5-impact" class="tab-content hidden space-y-6">
 
-        <!-- Bannière officielle 40M FCFA -->
-        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl text-white space-y-4">
+        <!-- Bannière d'Aide & Assistance Publique -->
+        <div class="bg-white border border-slate-200/90 rounded-3xl p-6 md:p-8 shadow-sm space-y-4">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-extrabold text-xs border border-amber-500/40">
-              🏆 PRIX NATIONAL DE LA SIMPLIFICATION ADMINISTRATIVE
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Portail Officiel d'Assistance & Transparence
             </span>
-            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold text-xs border border-emerald-500/30">
-              💰 40 000 000 FCFA EN JEU
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-mono text-xs border border-slate-200">
+              République du Bénin
             </span>
           </div>
 
-          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
-            « Pass Citoyen Bénin » — Candidature Officielle au Grand Prix
+          <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Centre d'Aide & Impact des Services Publics
           </h1>
 
-          <p class="text-slate-300 text-xs md:text-sm leading-relaxed max-w-3xl">
-            <strong class="text-amber-300">« Le service public commence avec vous. Vos expériences éclairent les réformes de demain. »</strong><br>
-            Répond point par point aux trois questions de l'État : <em>« Cette démarche prend trop de temps ? Ce formulaire pourrait être plus simple ? On pourrait régler ça en un clic ? »</em>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed max-w-3xl">
+            Découvrez comment <strong class="text-slate-800">Citoyen Bénin</strong> simplifie vos démarches administratives du quotidien, garantit la sécurité de vos données personnelles sous le contrôle de l'<strong>APDP</strong> et restitue du temps utile à chaque citoyen béninois.
           </p>
 
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://prix-simplification.gouv.bj/" target="_blank" rel="noopener noreferrer" 
-               class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition shadow flex items-center gap-2">
-              <span>🌐 prix-simplification.gouv.bj</span>
-              <span>↗</span>
-            </a>
-            <a href="dossier_candidature_prix_simplification.md" target="_blank"
-               class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold text-xs rounded-xl border border-amber-500/40 transition flex items-center gap-2">
-              <span>📑 Consulter le Dossier Rédigé</span>
-            </a>
-            <span class="text-xs text-slate-400 font-mono">
-              📅 Dépôt : <strong class="text-emerald-400">29 Octobre - 12 Novembre 2026</strong>
-            </span>
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <div class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-semibold flex items-center gap-2">
+              <span>📞 Numéro Vert Gratuit :</span>
+              <strong class="text-emerald-700 font-mono">130</strong>
+            </div>
+            <div class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-semibold flex items-center gap-2">
+              <span>✉️ Courriel d'assistance :</span>
+              <span class="text-slate-800 font-mono">assistance@citoyen.gouv.bj</span>
+            </div>
+            <div class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-semibold flex items-center gap-2">
+              <span>🛡️ Conformité :</span>
+              <span class="text-emerald-700 font-bold">APDP Bénin</span>
+            </div>
           </div>
         </div>
 
@@ -892,6 +906,51 @@ Composer *130# puis appuyer sur [APPEL]
             <div class="text-xs font-bold text-slate-700">Pouvoir d'achat restitué</div>
             <p class="text-[11px] text-slate-400">Économies de transport et de légalisation.</p>
           </div>
+        </div>
+
+        <!-- Guide & FAQ Citoyenne -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-2.5">
+            <div class="flex items-center gap-2.5 text-emerald-700 font-extrabold text-sm">
+              <span class="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center text-base">⚡</span>
+              <span>Le principe « Dites-le-nous une fois »</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              En fournissant votre NPI et votre accord, l'administration extrait vos pièces (CIP, casier judiciaire, quitus fiscal) directement auprès des institutions sources via le bus sécurisé X-Road de l'État béninois. Vous n'avez plus à fournir les documents que l'État détient déjà.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-2.5">
+            <div class="flex items-center gap-2.5 text-blue-700 font-extrabold text-sm">
+              <span class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-base">📱</span>
+              <span>Portefeuille 2D-Doc & Hors-ligne</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Toutes vos attestations numériques intègrent un code 2D-Doc signé par l'autorité émettrice. Les forces de l'ordre, employeurs et services de contrôle peuvent certifier leur authenticité instantanément, même en zone blanche ou en mode avion sans connexion Internet.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-2.5">
+            <div class="flex items-center gap-2.5 text-amber-700 font-extrabold text-sm">
+              <span class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-base">📞</span>
+              <span>Inclusion 2G (*130#) & Serveur Vocal</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Tout citoyen ne possédant pas de smartphone ou d'accès Internet peut composer gratuitement le code USSD <strong>*130#</strong> sur un téléphone basique ou écouter les consignes et statuts de ses dossiers en langues nationales (Fongbé, Yorùbá ou Français).
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-2.5">
+            <div class="flex items-center gap-2.5 text-purple-700 font-extrabold text-sm">
+              <span class="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center text-base">🛡️</span>
+              <span>Protection des données & APDP</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Aucune administration ne peut accéder à vos données sans votre consentement explicite et préalable. Chaque échange X-Road fait l'objet d'un journal d'audit crypté, garantissant une traçabilité totale et le respect de votre vie privée conformément aux lois béninoises.
+            </p>
+          </div>
+
         </div>
 
       </section>

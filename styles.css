@@ -36,21 +36,32 @@ code, pre, .font-mono {
   text-align: left;
 }
 
+.sidebar-item svg {
+  color: #64748b;
+  transition: all 0.15s ease;
+}
+
 .sidebar-item:hover {
   color: #ffffff;
-  background-color: rgba(30, 41, 59, 0.6);
+  background-color: rgba(30, 41, 59, 0.7);
+}
+
+.sidebar-item:hover svg {
+  color: #cbd5e1;
 }
 
 .sidebar-item.active {
-  color: #ffffff;
-  background-color: #142820;
-  border-left-color: #10b981;
+  color: #ffffff !important;
+  background-color: #142820 !important;
+  border-left-color: #10b981 !important;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
 }
 
-.sidebar-item.active .icon {
-  transform: scale(1.1);
+.sidebar-item.active svg {
+  color: #10b981 !important;
 }
+
+
 
 /* TABS VISIBILITY */
 .tab-content {
