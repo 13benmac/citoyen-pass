@@ -39,29 +39,38 @@
     </svg>
   </div>
 
+  <!-- BACKDROP OVERLAY POUR MOBILE -->
+  <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+
   <!-- ========================================================================= -->
   <!-- BARRE LATÉRALE GAUCHE (SIDEBAR NOIRE OFFICIELLE CITOYEN BÉNIN) -->
   <!-- ========================================================================= -->
-  <aside class="w-64 bg-[#0d1117] text-slate-300 flex flex-col justify-between shrink-0 border-r border-slate-800 relative z-40 min-h-screen">
+  <aside id="main-sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-64 bg-[#0d1117] text-slate-300 flex flex-col justify-between shrink-0 border-r border-slate-800 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out min-h-screen">
     
     <!-- Haut Sidebar : Logo & Navigation -->
     <div class="p-5 space-y-7">
       
-      <!-- Logo Citoyen Bénin -->
-      <div class="flex items-center gap-3 px-1">
-        <!-- Rosette multi-couleurs Bénin -->
-        <div class="relative w-9 h-9 flex items-center justify-center shrink-0">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="10" width="14" height="14" rx="3" transform="rotate(45 3 10)" fill="#008751" />
-            <rect x="18" y="3" width="14" height="14" rx="3" transform="rotate(45 18 3)" fill="#fcd116" />
-            <rect x="10" y="18" width="14" height="14" rx="3" transform="rotate(45 10 18)" fill="#e8112d" />
-            <rect x="18" y="18" width="14" height="14" rx="3" transform="rotate(45 18 18)" fill="#ff8c00" />
-          </svg>
+      <!-- Logo Citoyen Bénin + Bouton Fermer (Mobile) -->
+      <div class="flex items-center justify-between px-1">
+        <div class="flex items-center gap-3">
+          <!-- Rosette multi-couleurs Bénin -->
+          <div class="relative w-9 h-9 flex items-center justify-center shrink-0">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="10" width="14" height="14" rx="3" transform="rotate(45 3 10)" fill="#008751" />
+              <rect x="18" y="3" width="14" height="14" rx="3" transform="rotate(45 18 3)" fill="#fcd116" />
+              <rect x="10" y="18" width="14" height="14" rx="3" transform="rotate(45 10 18)" fill="#e8112d" />
+              <rect x="18" y="18" width="14" height="14" rx="3" transform="rotate(45 18 18)" fill="#ff8c00" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-extrabold text-white text-lg tracking-tight leading-none">Citoyen</div>
+            <div class="font-bold text-white text-base tracking-tight leading-none mt-1">Bénin</div>
+          </div>
         </div>
-        <div>
-          <div class="font-extrabold text-white text-lg tracking-tight leading-none">Citoyen</div>
-          <div class="font-bold text-white text-base tracking-tight leading-none mt-1">Bénin</div>
-        </div>
+        <!-- Bouton Fermer Mobile -->
+        <button id="btn-close-sidebar" class="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" aria-label="Fermer le menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
 
       <!-- Liens de navigation officiels Citoyen Bénin -->
@@ -142,24 +151,32 @@
   <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
 
     <!-- TOPBAR BLANCHE AVEC RECHERCHE & PROFIL -->
-    <header class="bg-white/95 backdrop-blur border-b border-slate-200/80 sticky top-0 z-30 px-6 py-3.5 flex items-center justify-between gap-4">
+    <header class="bg-white/95 backdrop-blur border-b border-slate-200/80 sticky top-0 z-30 px-4 sm:px-6 py-3 flex items-center justify-between gap-3 sm:gap-4">
       
-      <!-- Barre de recherche moderne -->
-      <div class="flex-1 max-w-xl relative">
-        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 1114 0z" />
+      <!-- Bouton Menu Burger Mobile + Barre de recherche -->
+      <div class="flex items-center gap-2.5 flex-1 max-w-xl">
+        <button id="btn-open-sidebar" class="lg:hidden p-2 -ml-1 text-slate-600 hover:text-slate-900 rounded-xl hover:bg-slate-100 transition shrink-0" aria-label="Ouvrir le menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-        </div>
-        <input type="text" placeholder="Rechercher une démarche, un document..." 
-          class="w-full pl-10 pr-12 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white transition">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-          <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-200 rounded text-slate-400 shadow-sm">⌘ K</kbd>
+        </button>
+
+        <div class="flex-1 relative min-w-0">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 1114 0z" />
+            </svg>
+          </div>
+          <input type="text" placeholder="Rechercher une démarche, un document..." 
+            class="w-full pl-10 pr-3 sm:pr-12 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white transition">
+          <div class="absolute inset-y-0 right-0 pr-3 hidden sm:flex items-center pointer-events-none">
+            <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-200 rounded text-slate-400 shadow-sm">⌘ K</kbd>
+          </div>
         </div>
       </div>
 
       <!-- Contrôles droits : Cloche notification + Menu utilisateur / Switcher -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 sm:gap-4 shrink-0">
         
         <!-- Cloche de notification -->
         <button class="relative p-2 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100 transition" title="Notifications officielles">
@@ -170,19 +187,19 @@
         </button>
 
         <!-- Profil Utilisateur & Sélecteur citoyen -->
-        <div class="flex items-center gap-2.5 pl-2 border-l border-slate-200">
+        <div class="flex items-center gap-2 sm:gap-2.5 pl-2 border-l border-slate-200">
           <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-white text-xs font-bold" id="top-avatar">
             👤
           </div>
-          <div class="text-left">
+          <div class="text-left hidden md:block">
             <div class="text-[10px] text-slate-400 font-medium">Bonjour,</div>
-            <select id="citizen-selector" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer pr-1">
-              <option value="1029384756">Bio Kora Sanni (1029384756)</option>
-              <option value="9876543210">Amina Tokpon (9876543210)</option>
-              <option value="5544332211">Marcos Agossou (5544332211)</option>
+            <select id="citizen-selector" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer pr-1 max-w-[140px] truncate">
+              <option value="1029384756">Bio Kora Sanni</option>
+              <option value="9876543210">Amina Tokpon</option>
+              <option value="5544332211">Marcos Agossou</option>
             </select>
           </div>
-          <button id="btn-reset-demo" title="Réinitialiser la démonstration" class="ml-1 p-1.5 text-xs text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition" title="Reset">
+          <button id="btn-reset-demo" title="Réinitialiser la démonstration" class="p-1.5 text-xs text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition" title="Reset">
             🔄
           </button>
         </div>
@@ -194,7 +211,7 @@
 
 
     <!-- ZONE DE CONTENU PRINCIPAL PAR ONGLET -->
-    <main class="p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
+    <main class="p-4 sm:p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
 
       <!-- ========================================================================= -->
       <!-- ONGLET 1 : ACCUEIL / LE MOTEUR « DITES-LE-NOUS UNE FOIS » -->

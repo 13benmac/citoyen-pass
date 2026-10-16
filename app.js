@@ -157,6 +157,37 @@ function initNavigation() {
     });
   }
 
+  // Mobile drawer sidebar toggle
+  const btnOpenSidebar = document.getElementById("btn-open-sidebar");
+  const btnCloseSidebar = document.getElementById("btn-close-sidebar");
+  const sidebar = document.getElementById("main-sidebar");
+  const backdrop = document.getElementById("sidebar-backdrop");
+
+  function openSidebar() {
+    if (!sidebar || !backdrop) return;
+    sidebar.classList.remove("-translate-x-full");
+    backdrop.classList.remove("hidden");
+  }
+
+  function closeSidebar() {
+    if (!sidebar || !backdrop) return;
+    sidebar.classList.add("-translate-x-full");
+    backdrop.classList.add("hidden");
+  }
+
+  if (btnOpenSidebar) btnOpenSidebar.addEventListener("click", openSidebar);
+  if (btnCloseSidebar) btnCloseSidebar.addEventListener("click", closeSidebar);
+  if (backdrop) backdrop.addEventListener("click", closeSidebar);
+
+  // Auto-fermeture du menu sur mobile lors du clic sur un lien
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (window.innerWidth < 1024) {
+        closeSidebar();
+      }
+    });
+  });
+
   // Bouton Reset
   const btnReset = document.getElementById("btn-reset-demo");
   if (btnReset) {
